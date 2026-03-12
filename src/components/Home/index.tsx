@@ -21,6 +21,8 @@ const Index = () => {
     <Layout>
       <div className="search_section">
         <Input
+          id="search"
+          name="search"
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search for a word..."
         />
