@@ -121,3 +121,4 @@ A JavaScript library for building user interfaces.
 
 Frontend Developer specializing in **React, TypeScript, and modern web technologies**.
 # XDictionary
+# XSpellCheck
