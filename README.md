@@ -1,88 +1,123 @@
-🌍 Location Selector (Country → State → City)
+# 🌍 Location Selector (Country → State → City)
 
-A simple React application that allows users to select a Country, State, and City using cascading dropdowns. The data is fetched dynamically from an API.
+A React application that allows users to select **Country → State → City** using cascading dropdowns.
+The application fetches location data dynamically from an external API using **custom React hooks**.
 
-🚀 Features
+---
 
-Select Country → State → City
+## 🚀 Features
 
-Dynamic API fetching
+- Dynamic **Country → State → City** dropdown
+- Data fetched from API
+- Custom React Hooks
+- Reusable Select Component
+- Loading and error handling
+- Built using **React + TypeScript**
 
-Custom React hooks
+---
 
-Reusable Select component
+## 🛠 Tech Stack
 
-Loading and error handling
+- React
+- TypeScript
+- CSS
+- Fetch API
+- Custom React Hooks
 
-Built with React + TypeScript
+---
 
-🛠 Tech Stack
+## 📦 Environment Variables
 
-React
+This project uses environment variables to store API configuration.
 
-TypeScript
+Create a `.env` file in the root directory:
 
-CSS
+```
+VITE_API_BASE_URL=your_api_base_url_here
+```
 
-Custom React Hooks
+This prevents exposing API URLs directly in the codebase.
 
-Fetch API
+---
 
-📦 API Used
+## 📂 Project Structure
 
-Country, State, and City data are fetched from:
-
-https://location-selector.labs.crio.do
-Endpoints
-
-Get Countries
-
-https://location-selector.labs.crio.do/countries
-
-Get States
-
-https://location-selector.labs.crio.do/countries/{country}/states
-
-Get Cities
-
-https://location-selector.labs.crio.do/countries/{country}/states/{state}/cities
-📂 Project Structure
+```
 src
 │
 ├── components
-│ └── Select.tsx
+│   └── Select.tsx
 │
 ├── hooks
-│ ├── useCountries.ts
-│ ├── useStates.ts
-│ └── useCities.ts
+│   ├── useCountries.ts
+│   ├── useStates.ts
+│   └── useCities.ts
+│
+├── config
+│   └── api.ts
 │
 ├── App.tsx
 └── main.tsx
-⚙️ Installation
+```
 
-Clone the repository:
+---
 
-git clone <your-repo-url>
+## ⚙️ Installation
 
-Navigate into the project:
+Clone the repository
 
+```
+git clone <your-repository-url>
+```
+
+Navigate into the project
+
+```
 cd location-selector
+```
 
-Install dependencies:
+Install dependencies
 
+```
 npm install
+```
 
-Start the development server:
+Run the development server
 
+```
 npm run dev
-💡 How It Works
+```
 
-The app loads all available countries.
+---
 
-When a user selects a country, the app fetches its states.
+## 💡 Application Flow
 
-When a user selects a state, the app fetches its cities.
+1. Load available **Countries**
+2. When a country is selected → **States are fetched**
+3. When a state is selected → **Cities are fetched**
 
-Each dropdown updates dynamically.
-# XState
+Example:
+
+```
+Country → State → City
+India   → Karnataka → Bangalore
+```
+
+---
+
+## 🎯 Learning Purpose
+
+This project demonstrates:
+
+- Creating reusable **React components**
+- Using **custom hooks**
+- Handling **dependent dropdowns**
+- Working with **API requests**
+- Managing **state in React**
+
+---
+
+## 👨‍💻 Author
+
+Subroto Chakraborty
+Frontend Developer | React | TypeScript | MERN Stack
