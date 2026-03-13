@@ -1,82 +1,24 @@
-import Layout from "../common/Layout";
-import Select from "../../ui/Select";
-import useCountry from "../../hooks/useCountry";
-import Styles from "./Home.module.css";
 import { useState } from "react";
-import useStates from "../../hooks/useStates";
-import useCity from "../../hooks/useCity";
-
+import useWeatherApi from "../../hooks/useWeather";
+import Layout from "../common/Layout";
+import Search from "./Search";
+import Weather from "./Weather";
 const Index = () => {
-  const { loading, countries, error } = useCountry();
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedState, setSelectedState] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
-  const {
-    loading: stateLoading,
-    states,
-    error: stateError,
-  } = useStates(selectedCountry);
+  const { data, loading, error, fetchWeather } = useWeatherApi();
+  const [search, setSearch] = useState("");
 
-  const {
-    loading: cityLoading,
-    cities,
-    error: cityError,
-  } = useCity(selectedCountry, selectedState);
-
-  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCountry(e.target.value);
-    setSelectedState("");
-    setSelectedCity("");
-  };
-
-  const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedState(e.target.value);
-    setSelectedCity("");
-  };
-
-  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCity(e.target.value);
+  const handleWeatherData = () => {
+    fetchWeather(search);
   };
 
   return (
     <Layout>
-      <div className={Styles.container}>
-        <Select
-          id="country"
-          label="Select Country"
-          value={selectedCountry}
-          onChange={handleCountryChange}
-          disabled={loading && error ? true : false}
-          options={countries}
-        />
+      <Search
+        onChange={(e) => setSearch(e.target.value)}
+        onClick={handleWeatherData}
+      />
 
-        <Select
-          id="state"
-          label="Select State"
-          value={selectedState}
-          onChange={handleStateChange}
-          disabled={stateLoading && stateError ? true : false}
-          options={selectedCountry ? states : []}
-        />
-
-        <Select
-          id="city"
-          label="Select City"
-          value={selectedCity}
-          onChange={handleCityChange}
-          disabled={cityLoading && cityError ? true : false}
-          options={selectedState ? cities : []}
-        />
-      </div>
-      {selectedCountry && selectedState && selectedCity && (
-        <span className={Styles.selectedText}>
-          You selected{" "}
-          <span className={Styles.selectedCountry}>{selectedCity}</span>,{" "}
-          <span className={Styles.selectedState}>
-            {selectedState}, {selectedCountry}
-          </span>
-        </span>
-      )}
+      {!error && <Weather loading={loading} data={data} />}
     </Layout>
   );
 };

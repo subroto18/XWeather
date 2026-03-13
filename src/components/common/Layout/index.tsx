@@ -1,4 +1,4 @@
-import Styles from "./Home.module.css";
+import Styles from "./Layout.module.css";
 type LayoutProps = {
   search?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -6,7 +6,7 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-const TITLE = "Select Location";
+const TITLE = "Live Weather App";
 
 const Layout = ({ children }: LayoutProps) => {
   return (

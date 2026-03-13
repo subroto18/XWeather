@@ -1,0 +1,29 @@
+.container {
+  width: 40%;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+}
+
+.weatherCrd {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .weatherCrd {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
