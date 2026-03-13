@@ -69,13 +69,13 @@ const Index = () => {
         />
       </div>
       {selectedCountry && selectedState && selectedCity && (
-        <p className={Styles.selectedText}>
+        <span className={Styles.selectedText}>
           You selected{" "}
-          <span className={Styles.selectedCountry}>{selectedCountry}, </span>
-          <span className={Styles.selectedCity}>
+          <span className={Styles.selectedCountry}>{selectedCity}</span>,{" "}
+          <span className={Styles.selectedState}>
             {selectedState}, {selectedCountry}
           </span>
-        </p>
+        </span>
       )}
     </Layout>
   );
