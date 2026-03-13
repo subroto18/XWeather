@@ -56,7 +56,7 @@ const Index = () => {
           value={selectedState}
           onChange={handleStateChange}
           disabled={stateLoading && stateError ? true : false}
-          options={states}
+          options={selectedCountry ? states : []}
         />
 
         <Select
@@ -65,7 +65,7 @@ const Index = () => {
           value={selectedCity}
           onChange={handleCityChange}
           disabled={cityLoading && cityError ? true : false}
-          options={cities}
+          options={selectedState ? cities : []}
         />
       </div>
       {selectedCountry && selectedState && selectedCity && (
