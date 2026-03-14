@@ -1,7 +1,13 @@
+import type { WeatherResponse } from "../../types";
 import Card from "../common/Card";
 import Styles from "./Style.module.css";
 
-const Weather = ({ loading, data }) => {
+type Props = {
+  loading: boolean;
+  data: WeatherResponse | null;
+};
+
+const Weather = ({ loading, data }: Props) => {
   if (loading) {
     return <p className={Styles.loading}>Loading data...</p>;
   }

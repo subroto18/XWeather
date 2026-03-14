@@ -3,7 +3,7 @@ import Input from "../../ui/Input";
 import Styles from "./Style.module.css";
 
 type Props = {
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
 };
 
