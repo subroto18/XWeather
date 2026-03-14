@@ -5,7 +5,7 @@ type Props = {
 };
 const index = ({ title, value }: Props) => {
   return (
-    <div className={`${Style.container} weather-cards`}>
+    <div className={`${Style.container} weather-card`}>
       <h2>{title}</h2>
       <p>{value}</p>
     </div>

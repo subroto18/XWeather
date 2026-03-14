@@ -26,7 +26,7 @@ const Weather = ({ loading, data }: Props) => {
   ];
 
   return (
-    <div className={Styles.weatherCrd}>
+    <div className={`${Styles.weatherCrd} weather-cards`}>
       {weatherItems.map((item, index) => (
         <Card key={index} title={item.title} value={item.value} />
       ))}
